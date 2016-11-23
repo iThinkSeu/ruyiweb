@@ -1,0 +1,58 @@
+root         2016-11-10 13:04:58,220 level-ERROR    <module> E:\webserver\ruyiweb\flasky\app
+root         2016-11-10 13:05:51,130 level-ERROR    historywarn 2016-01-10
+root         2016-11-10 13:06:02,641 level-ERROR    historywarn 2016-01-10
+root         2016-11-10 13:06:22,476 level-DEBUG    query_state 2016-03-14 10:55:24
+root         2016-11-10 13:06:33,592 level-DEBUG    query_state 2016-03-14 10:55:24
+root         2016-11-10 13:06:44,186 level-DEBUG    query_state 2016-07-01 19:24:44
+root         2016-11-10 13:10:02,940 level-DEBUG    query_state 2016-07-01 19:24:44
+root         2016-11-10 13:11:41,246 level-DEBUG    query_state 2016-07-05 12:26:38
+root         2016-11-10 13:12:55,946 level-DEBUG    warncount here
+root         2016-11-10 13:13:10,433 level-DEBUG    warncount here
+root         2016-11-10 13:13:10,992 level-DEBUG    warncount [u'1', u'10', u'41']
+root         2016-11-10 13:13:10,992 level-DEBUG    warncount 1
+root         2016-11-10 13:13:10,992 level-DEBUG    warncount 200000001000
+root         2016-11-10 13:13:22,790 level-DEBUG    allwarncount [u'1', u'2', u'3', u'4', u'5', u'6', u'8', u'9', u'10', u'11', u'13', u'38', u'39', u'40', u'41', u'42', u'43', u'44', u'45', u'46', u'47', u'48', u'49', u'50', u'51', u'52', u'53', u'54', u'55', u'56', u'57', u'58', u'59', u'60', u'61', u'62', u'63', u'64']
+root         2016-11-10 13:13:22,792 level-DEBUG    allwarncount 1
+root         2016-11-10 13:13:39,614 level-DEBUG    allwarncount [u'45', u'46']
+root         2016-11-10 13:13:39,614 level-DEBUG    allwarncount 1
+root         2016-11-10 13:13:58,234 level-DEBUG    allwarncount [u'1', u'2', u'3', u'4', u'5', u'6', u'8', u'9', u'10', u'11', u'13', u'38', u'39', u'40', u'41', u'42', u'43', u'44', u'45', u'46', u'47', u'48', u'49', u'50', u'51', u'52', u'53', u'54', u'55', u'56', u'57', u'58', u'59', u'60', u'61', u'62', u'63', u'64']
+root         2016-11-10 13:13:58,236 level-DEBUG    allwarncount 1
+root         2016-11-10 13:15:21,329 level-DEBUG    allwarncount [u'46']
+root         2016-11-10 13:15:21,329 level-DEBUG    allwarncount 1
+root         2016-11-10 13:17:36,757 level-DEBUG    warncount here
+root         2016-11-10 13:17:48,198 level-DEBUG    warncount here
+root         2016-11-10 13:17:48,450 level-DEBUG    warncount [u'47']
+root         2016-11-10 13:17:48,450 level-DEBUG    warncount 1
+root         2016-11-10 13:17:48,450 level-DEBUG    warncount 200000001000
+root         2016-11-10 13:17:56,369 level-DEBUG    warncount here
+root         2016-11-10 13:17:56,854 level-DEBUG    warncount [u'43']
+root         2016-11-10 13:17:56,854 level-DEBUG    warncount 1
+root         2016-11-10 13:17:56,854 level-DEBUG    warncount 200000001000
+root         2016-11-10 13:18:01,776 level-DEBUG    warncount here
+root         2016-11-10 13:18:02,259 level-DEBUG    warncount [u'13']
+root         2016-11-10 13:18:02,259 level-DEBUG    warncount 1
+root         2016-11-10 13:18:02,259 level-DEBUG    warncount 200000001000
+root         2016-11-10 13:18:16,338 level-DEBUG    warncount here
+root         2016-11-10 13:18:16,631 level-DEBUG    warncount [u'13']
+root         2016-11-10 13:18:16,631 level-DEBUG    warncount 1
+root         2016-11-10 13:18:16,632 level-DEBUG    warncount 200000001000
+root         2016-11-10 13:18:21,124 level-DEBUG    warncount here
+root         2016-11-10 13:18:21,408 level-DEBUG    warncount [u'46']
+root         2016-11-10 13:18:21,408 level-DEBUG    warncount 1
+root         2016-11-10 13:18:21,408 level-DEBUG    warncount 200000001000
+root         2016-11-10 13:18:33,532 level-DEBUG    warncount here
+root         2016-11-10 13:18:33,832 level-DEBUG    warncount [u'46']
+root         2016-11-10 13:18:33,832 level-DEBUG    warncount 1
+root         2016-11-10 13:18:33,832 level-DEBUG    warncount 201607040001
+root         2016-11-10 13:18:48,338 level-DEBUG    warncount here
+root         2016-11-10 13:18:48,677 level-DEBUG    warncount [u'1', u'2', u'3', u'4', u'5', u'6', u'8', u'9', u'10', u'11', u'13', u'38', u'39', u'40', u'41', u'42', u'43', u'44', u'45', u'46', u'47', u'48', u'49', u'50', u'51', u'52', u'53', u'54', u'55', u'56', u'57', u'58', u'59', u'60', u'61', u'62', u'63', u'64']
+root         2016-11-10 13:18:48,678 level-DEBUG    warncount 1
+root         2016-11-10 13:18:48,678 level-DEBUG    warncount 200000001000
+root         2016-11-10 13:19:00,341 level-DEBUG    warncount here
+root         2016-11-10 13:19:00,608 level-DEBUG    warncount [u'1', u'2', u'3', u'4', u'5', u'6', u'8', u'9', u'10', u'11', u'13', u'38', u'39', u'40', u'41', u'42', u'43', u'44', u'45', u'46', u'47', u'48', u'49', u'50', u'51', u'52', u'53', u'54', u'55', u'56', u'57', u'58', u'59', u'60', u'61', u'62', u'63', u'64']
+root         2016-11-10 13:19:00,608 level-DEBUG    warncount 1
+root         2016-11-10 13:19:00,608 level-DEBUG    warncount 201607040001
+root         2016-11-10 13:21:49,335 level-ERROR    historywarn 2016-01-10
+root         2016-11-10 13:23:12,427 level-DEBUG    warncount here
+root         2016-11-10 13:23:16,924 level-DEBUG    allwarncount [u'1', u'2', u'3', u'4', u'5', u'6', u'8', u'9', u'10', u'11', u'13', u'38', u'39', u'40', u'41', u'42', u'43', u'44', u'45', u'46', u'47', u'48', u'49', u'50', u'51', u'52', u'53', u'54', u'55', u'56', u'57', u'58', u'59', u'60', u'61', u'62', u'63', u'64']
+root         2016-11-10 13:23:16,924 level-DEBUG    allwarncount 1

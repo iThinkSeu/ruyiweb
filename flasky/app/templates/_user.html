@@ -1,0 +1,19 @@
+{% for user in users %}
+                <tr>
+                  <!-- <td><input type="checkbox"/></td>
+                  <td><span class="label label-default">未审核</span></td> -->
+                  <td>{{ loop.index }}</td>
+                  <td>{{user.username}}</td>
+                  <td>{% if user.rank==1 %}
+                        管理员
+                        {%else %}
+                        普通用户 
+                        {% endif %}</td>
+                  <td><button   type="submit" class="btn btn-danger" id="{{user.username}}" onclick ="deleteUser(this.id)">删除</button>
+</td>
+
+                </tr>
+                
+                       
+                  
+{%endfor %}

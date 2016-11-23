@@ -1,0 +1,75 @@
+
+{% import "bootstrap/wtf.html" as wtf%}
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" href="{{ url_for('static', filename='logo.png') }}" type="image/x-icon">
+<link rel="shortcut icon" href="{{ url_for('static', filename='logo.png') }}" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.css') }}">
+<script src="{{ url_for('static', filename='jquery-3.1.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='bootstrap.js') }}"></script>
+<title>如意叉车监控系统</title>
+</head>
+    
+<body >
+<header   style="background-image: url(../static/bg.jpg)">
+        <div class="container-fluid">
+
+            <div class="col-md-4">
+              <img src="../static/logo.png" alt="ruyi" width="70px">
+            </div>
+                <div class="col-md-offset-10">
+              <h3> 400 880 9355</h3> 
+                </div>         
+
+        </div>
+    </header>
+
+
+<div> 
+
+    <nav class="navbar navbar-inverse">
+
+      <div class="col-md-offset-1">
+
+        <div  class="collapse navbar-collapse"  >
+
+          <ul class="nav navbar-nav ">
+<!--     <li class="active"> <a id="index" href="/" class="navbar-brand"> 首页</a> </li>  -->
+
+    <li><a id="onlinestate"  class="navbar-brand" href="/" >在线设备</a> </li>
+    <li><a id="todaywarn" class="navbar-brand" href="/todaywarn" >当日故障报警</a> </li>
+    <li> <a id="historywarn" class="navbar-brand" href="/historywarn" >历史故障查询</a></li>
+    <li> <a id="historystate" class="navbar-brand" href="/historystate" >历史状态查询</a></li>
+    <li><a id="repair" class="navbar-brand" href="/repair" >维修保养记录</a>  </li>
+    <li><a id="warncount" class="navbar-brand" href="/warncount" >故障统计</a> </li>
+    <li ><a id="changepassword" class="navbar-brand" href="change-password" >修改密码</a> </li>
+    {%if current_user.rank==1%}
+    <li ><a id="usermanager" class="navbar-brand " href="usermanager">账号管理</a> </li>
+    <li ><a id="register" class="navbar-brand" href="auth/register" >用户注册</a> </li>
+    {%endif%}
+    <li><a class="navbar-brand" href="{{ url_for('auth.logout') }}" >退出系统</a> </li>
+
+          </ul>
+{% if current_user.is_authenticated %}
+         <ul class="nav navbar-nav navbar-right"> <li><a>用户：{{ current_user.username }} ({%if current_user.rank==1%}管理员{%else %}普通用户{% endif %})</a></li></ul>
+         {% endif %}
+        </div>
+      </div>
+
+
+
+    </nav>
+</div>
+<div class="container">
+<div class="col-xs-12 col-sm-10 col-md-offset-1 col-lg-10" >
+<div class="page-header">
+    <h1>Internal Server Error</h1>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+

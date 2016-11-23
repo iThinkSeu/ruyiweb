@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="{{ url_for('static', filename='logo.png') }}" type="image/x-icon">
+<link rel="icon" href="{{ url_for('static', filename='logo.png') }}" type="image/x-icon">
+<script src="{{ url_for('static', filename='jquery-3.0.0.min.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+{% endblock %}
+
+{% block navbar %}
+    <div class="header">
+      <nav class="navbar navbar-inverse " role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a href="{{ url_for('main.index') }}" class="navbar-brand" >如意叉车监控系统</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+           <!--  <ul class="nav navbar-nav">
+              <li class="active"><a href="#">内容审核</a></li>
+              <li><a href="#">论坛管理</a></li>
+              <li><a href="#">数据统计</a></li>
+            </ul> -->
+            <ul class="nav navbar-nav navbar-right">
+              <!-- <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="搜索">
+                </div> 
+                <button type="submit" class="btn btn-default hidden">Submit</button>
+              </form> -->
+              <!-- <li><a href="#">未读消息 <span class="badge">5</span></a></li> -->
+            {% if current_user.is_authenticated %}
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown">账户   {{current_user.username}}<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ url_for('auth.change_password') }}">修改密码</a></li>
+                        {%if current_user.rank==1%}
+                        <li><a href="{{ url_for('auth.register') }}">增加账户</a></li>
+                        {%endif%}
+                        <li><a href="{{ url_for('auth.logout') }}">退出系统</a></li>
+                    </ul>
+                </li>
+                {% else %}
+                <li><a href="{{ url_for('auth.login') }}">登录</a></li>
+                {% endif %}
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+{% endblock %}
+
+
+{% block content %}
+<div class="container" >
+  <div class="row">
+    <div class="col-xs-12 col-sm-2 col-md-offset-1 col-lg-2">
+              {%block ournavbar%}
+              <div class="list-group">
+                      <a id="index" href="/" class="list-group-item">首页</a>
+                      <a id="onlinestate" href="/onlinestate" class="list-group-item">在线设备</a>
+                      <a id="todaywarn" href="/todaywarn" class="list-group-item ">当日故障报警</a>
+                      <a id="historywarn" href="/historywarn" class="list-group-item ">历史故障查询</a>
+                      <a id="historystate" href="/historystate" class="list-group-item ">历史状态查询</a>
+                      <a id="repair" href="/repair" class="list-group-item ">维修保养记录</a>
+                      <a id="warncount" href="/warncount" class="list-group-item ">故障统计</a>
+                      {%if current_user.rank==1%}
+                      <a id="usermanager" href="/usermanager" class="list-group-item ">账号管理</a>
+                      {%endif%}
+                     <a href="{{ url_for('auth.logout') }}" class="list-group-item ">退出系统</a>
+                      </div>
+                {%endblock%}
+            </div>
+          <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+          <div class="container">
+    {% for message in get_flashed_messages() %}
+    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10 alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+            {% block page_content %}
+            {% endblock %}
+            </div>
+    
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<!-- <script type=" text/javascript" src="static/my-script.js"></script> -->
+{% endblock %}

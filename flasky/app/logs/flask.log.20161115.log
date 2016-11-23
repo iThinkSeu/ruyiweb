@@ -1,0 +1,218 @@
+root         2016-11-15 13:06:04,319 level-DEBUG    todaywarn 2016-11-15
+root         2016-11-14 13:06:11,513 level-DEBUG    todaywarn 2016-11-14
+app          2016-11-15 13:06:18,111 level-ERROR    log_exception Exception on /todaywarn [GET]
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Python27\lib\site-packages\flask_login\utils.py", line 226, in decorated_view
+    elif not current_user.is_authenticated:
+  File "C:\Python27\lib\site-packages\werkzeug\local.py", line 343, in __getattr__
+    return getattr(self._get_current_object(), name)
+  File "C:\Python27\lib\site-packages\werkzeug\local.py", line 302, in _get_current_object
+    return self.__local()
+  File "C:\Python27\lib\site-packages\flask_login\utils.py", line 26, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "C:\Python27\lib\site-packages\flask_login\utils.py", line 302, in _get_user
+    current_app.login_manager._load_user()
+  File "C:\Python27\lib\site-packages\flask_login\login_manager.py", line 317, in _load_user
+    return self.reload_user()
+  File "C:\Python27\lib\site-packages\flask_login\login_manager.py", line 279, in reload_user
+    user = self.user_callback(user_id)
+  File "D:/ruyiweb/flasky\app\models.py", line 115, in load_user
+    return User.query.get(int(user_id))
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\query.py", line 829, in get
+    return self._get_impl(ident, loading.load_on_ident)
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\query.py", line 862, in _get_impl
+    return fallback_fn(self, key)
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\loading.py", line 223, in load_on_ident
+    return q.one()
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\query.py", line 2754, in one
+    ret = self.one_or_none()
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\query.py", line 2724, in one_or_none
+    ret = list(self)
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\query.py", line 2795, in __iter__
+    return self._execute_and_instances(context)
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\query.py", line 2818, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "C:\Python27\lib\site-packages\sqlalchemy\engine\base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "C:\Python27\lib\site-packages\sqlalchemy\sql\elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Python27\lib\site-packages\sqlalchemy\engine\base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "C:\Python27\lib\site-packages\sqlalchemy\engine\base.py", line 1189, in _execute_context
+    context)
+  File "C:\Python27\lib\site-packages\sqlalchemy\engine\base.py", line 1393, in _handle_dbapi_exception
+    exc_info
+  File "C:\Python27\lib\site-packages\sqlalchemy\util\compat.py", line 202, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Python27\lib\site-packages\sqlalchemy\engine\base.py", line 1182, in _execute_context
+    context)
+  File "C:\Python27\lib\site-packages\sqlalchemy\engine\default.py", line 462, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Python27\lib\site-packages\MySQLdb\cursors.py", line 174, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Python27\lib\site-packages\MySQLdb\connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (_mysql_exceptions.OperationalError) (2006, 'MySQL server has gone away') [SQL: u'SELECT users.id AS users_id, users.username AS users_username, users.rank AS users_rank, users.role_id AS users_role_id, users.password_hash AS users_password_hash, users.confirmed AS users_confirmed \nFROM users \nWHERE users.id = %s'] [parameters: (37,)]
+root         2016-11-15 13:06:19,088 level-DEBUG    todaywarn 2016-11-15
+root         2016-11-15 13:06:23,319 level-DEBUG    todaywarn 2016-11-15
+root         2016-11-15 13:06:47,927 level-DEBUG    todaywarn 2016-11-15
+root         2016-11-13 13:06:56,253 level-DEBUG    todaywarn 2016-11-13
+root         2016-11-13 13:06:58,355 level-DEBUG    todaywarn 2016-11-13
+app          2016-11-15 13:07:11,096 level-ERROR    log_exception Exception on /historyError/201607040002/38/2016-11-13/2016-11-13 [GET]
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Python27\lib\site-packages\flask_login\utils.py", line 226, in decorated_view
+    elif not current_user.is_authenticated:
+  File "C:\Python27\lib\site-packages\werkzeug\local.py", line 343, in __getattr__
+    return getattr(self._get_current_object(), name)
+  File "C:\Python27\lib\site-packages\werkzeug\local.py", line 302, in _get_current_object
+    return self.__local()
+  File "C:\Python27\lib\site-packages\flask_login\utils.py", line 26, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "C:\Python27\lib\site-packages\flask_login\utils.py", line 302, in _get_user
+    current_app.login_manager._load_user()
+  File "C:\Python27\lib\site-packages\flask_login\login_manager.py", line 317, in _load_user
+    return self.reload_user()
+  File "C:\Python27\lib\site-packages\flask_login\login_manager.py", line 279, in reload_user
+    user = self.user_callback(user_id)
+  File "D:/ruyiweb/flasky\app\models.py", line 115, in load_user
+    return User.query.get(int(user_id))
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\query.py", line 829, in get
+    return self._get_impl(ident, loading.load_on_ident)
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\query.py", line 862, in _get_impl
+    return fallback_fn(self, key)
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\loading.py", line 223, in load_on_ident
+    return q.one()
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\query.py", line 2754, in one
+    ret = self.one_or_none()
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\query.py", line 2724, in one_or_none
+    ret = list(self)
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\query.py", line 2795, in __iter__
+    return self._execute_and_instances(context)
+  File "C:\Python27\lib\site-packages\sqlalchemy\orm\query.py", line 2818, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "C:\Python27\lib\site-packages\sqlalchemy\engine\base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "C:\Python27\lib\site-packages\sqlalchemy\sql\elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Python27\lib\site-packages\sqlalchemy\engine\base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "C:\Python27\lib\site-packages\sqlalchemy\engine\base.py", line 1189, in _execute_context
+    context)
+  File "C:\Python27\lib\site-packages\sqlalchemy\engine\base.py", line 1393, in _handle_dbapi_exception
+    exc_info
+  File "C:\Python27\lib\site-packages\sqlalchemy\util\compat.py", line 202, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Python27\lib\site-packages\sqlalchemy\engine\base.py", line 1182, in _execute_context
+    context)
+  File "C:\Python27\lib\site-packages\sqlalchemy\engine\default.py", line 462, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Python27\lib\site-packages\MySQLdb\cursors.py", line 174, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Python27\lib\site-packages\MySQLdb\connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (_mysql_exceptions.OperationalError) (2006, 'MySQL server has gone away') [SQL: u'SELECT users.id AS users_id, users.username AS users_username, users.rank AS users_rank, users.role_id AS users_role_id, users.password_hash AS users_password_hash, users.confirmed AS users_confirmed \nFROM users \nWHERE users.id = %s'] [parameters: (37,)]
+root         2016-11-15 13:07:13,628 level-DEBUG    todaywarn 2016-11-15
+root         2016-11-15 13:41:10,601 level-ERROR    <module> E:\webserver\ruyiweb\flasky\app
+werkzeug     2016-11-15 13:41:10,736 level-INFO     _log  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+werkzeug     2016-11-15 13:41:16,974 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:41:16] "GET / HTTP/1.1" 200 -
+root         2016-11-15 13:41:18,766 level-DEBUG    warncount here
+werkzeug     2016-11-15 13:41:19,153 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:41:19] "GET /warncount HTTP/1.1" 200 -
+werkzeug     2016-11-15 13:41:19,655 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:41:19] "GET /static/highcharts.js HTTP/1.1" 200 -
+werkzeug     2016-11-15 13:41:19,688 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:41:19] "GET /static/exporting.js HTTP/1.1" 200 -
+werkzeug     2016-11-15 13:41:19,704 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:41:19] "GET /static/export-csv.js HTTP/1.1" 200 -
+werkzeug     2016-11-15 13:41:19,723 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:41:19] "GET /static/moment-with-locales.min.js HTTP/1.1" 200 -
+werkzeug     2016-11-15 13:41:27,227 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:41:27] "GET /historywarn HTTP/1.1" 200 -
+werkzeug     2016-11-15 13:41:27,246 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:41:27] "GET /static/deleteUser.js HTTP/1.1" 200 -
+root         2016-11-15 13:41:28,187 level-DEBUG    todaywarn 2016-11-15
+werkzeug     2016-11-15 13:41:28,206 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:41:28] "GET /todaywarn HTTP/1.1" 200 -
+root         2016-11-15 13:42:11,697 level-ERROR    <module> E:\webserver\ruyiweb\flasky\app
+werkzeug     2016-11-15 13:42:11,877 level-INFO     _log  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+root         2016-11-15 13:42:14,552 level-DEBUG    todaywarn 2016-11-15
+werkzeug     2016-11-15 13:42:14,572 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:14] "GET /todaywarn HTTP/1.1" 200 -
+werkzeug     2016-11-15 13:42:15,075 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:15] "GET /static/logo.png HTTP/1.1" 200 -
+root         2016-11-15 13:42:15,838 level-DEBUG    todaywarn 2016-11-15
+werkzeug     2016-11-15 13:42:15,859 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:15] "GET /todaywarn HTTP/1.1" 200 -
+werkzeug     2016-11-15 13:42:15,914 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:15] "GET /static/logo.png HTTP/1.1" 200 -
+root         2016-11-15 13:42:16,456 level-DEBUG    todaywarn 2016-11-15
+werkzeug     2016-11-15 13:42:16,460 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:16] "GET /todaywarn HTTP/1.1" 200 -
+werkzeug     2016-11-15 13:42:16,507 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:16] "GET /static/logo.png HTTP/1.1" 200 -
+werkzeug     2016-11-15 13:42:18,523 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:18] "GET / HTTP/1.1" 200 -
+root         2016-11-15 13:42:19,851 level-DEBUG    todaywarn 2016-11-15
+werkzeug     2016-11-15 13:42:19,877 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:19] "GET /todaywarn HTTP/1.1" 200 -
+root         2016-11-15 13:42:20,601 level-DEBUG    todaywarn 2016-11-15
+werkzeug     2016-11-15 13:42:20,605 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:20] "GET /todaywarn HTTP/1.1" 200 -
+werkzeug     2016-11-15 13:42:20,650 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:20] "GET /static/logo.png HTTP/1.1" 200 -
+root         2016-11-15 13:42:21,125 level-DEBUG    todaywarn 2016-11-15
+werkzeug     2016-11-15 13:42:21,128 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:21] "GET /todaywarn HTTP/1.1" 200 -
+root         2016-11-15 13:42:21,180 level-DEBUG    todaywarn 2016-11-15
+werkzeug     2016-11-15 13:42:21,184 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:21] "GET /todaywarn HTTP/1.1" 200 -
+root         2016-11-15 13:42:21,223 level-DEBUG    todaywarn 2016-11-15
+werkzeug     2016-11-15 13:42:21,226 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:21] "GET /todaywarn HTTP/1.1" 200 -
+werkzeug     2016-11-15 13:42:21,273 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:21] "GET /static/logo.png HTTP/1.1" 200 -
+root         2016-11-15 13:42:21,901 level-DEBUG    todaywarn 2016-11-15
+werkzeug     2016-11-15 13:42:21,927 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:21] "GET /todaywarn HTTP/1.1" 200 -
+werkzeug     2016-11-15 13:42:21,976 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:21] "GET /static/logo.png HTTP/1.1" 200 -
+root         2016-11-15 13:42:22,467 level-DEBUG    todaywarn 2016-11-15
+werkzeug     2016-11-15 13:42:22,473 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:22] "GET /todaywarn HTTP/1.1" 200 -
+root         2016-11-15 13:42:22,516 level-DEBUG    todaywarn 2016-11-15
+werkzeug     2016-11-15 13:42:22,519 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:22] "GET /todaywarn HTTP/1.1" 200 -
+root         2016-11-15 13:42:22,565 level-DEBUG    todaywarn 2016-11-15
+werkzeug     2016-11-15 13:42:22,569 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:22] "GET /todaywarn HTTP/1.1" 200 -
+root         2016-11-15 13:42:22,609 level-DEBUG    todaywarn 2016-11-15
+werkzeug     2016-11-15 13:42:22,612 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:22] "GET /todaywarn HTTP/1.1" 200 -
+root         2016-11-15 13:42:22,651 level-DEBUG    todaywarn 2016-11-15
+werkzeug     2016-11-15 13:42:22,655 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:22] "GET /todaywarn HTTP/1.1" 200 -
+werkzeug     2016-11-15 13:42:22,704 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:22] "GET /static/logo.png HTTP/1.1" 200 -
+root         2016-11-15 13:42:36,848 level-ERROR    <module> E:\webserver\ruyiweb\flasky\app
+werkzeug     2016-11-15 13:42:36,983 level-INFO     _log  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+root         2016-11-15 13:42:39,792 level-DEBUG    todaywarn 2016-11-15
+werkzeug     2016-11-15 13:42:39,809 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:39] "GET /todaywarn HTTP/1.1" 200 -
+werkzeug     2016-11-15 13:42:42,694 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:42] "GET / HTTP/1.1" 200 -
+werkzeug     2016-11-15 13:42:44,309 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:44] "GET /historywarn HTTP/1.1" 200 -
+root         2016-11-15 13:42:45,210 level-DEBUG    todaywarn 2016-11-15
+werkzeug     2016-11-15 13:42:45,213 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:45] "GET /todaywarn HTTP/1.1" 200 -
+werkzeug     2016-11-15 13:42:46,309 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:46] "GET /historywarn HTTP/1.1" 200 -
+werkzeug     2016-11-15 13:42:47,157 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:47] "GET /historystate HTTP/1.1" 200 -
+werkzeug     2016-11-15 13:42:47,651 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:47] "GET /static/highstock.js HTTP/1.1" 200 -
+root         2016-11-15 13:42:48,237 level-DEBUG    todaywarn 2016-11-15
+werkzeug     2016-11-15 13:42:48,242 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:48] "GET /todaywarn HTTP/1.1" 200 -
+werkzeug     2016-11-15 13:42:49,094 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:49] "GET /historywarn HTTP/1.1" 200 -
+werkzeug     2016-11-15 13:42:49,960 level-INFO     _log 127.0.0.1 - - [15/Nov/2016 13:42:49] "GET /historystate HTTP/1.1" 200 -
+root         2016-11-15 15:16:56,085 level-ERROR    <module> E:\webserver\ruyiweb\flasky\app
+root         2016-11-15 15:16:59,361 level-DEBUG    todaywarn 2016-11-15
+root         2016-11-15 15:17:01,134 level-DEBUG    todaywarn 2016-11-15
+root         2016-11-15 15:17:02,838 level-DEBUG    todaywarn 2016-11-15
+root         2016-11-15 15:18:26,717 level-DEBUG    todaywarn 2016-11-15
+root         2016-11-15 22:09:11,220 level-ERROR    <module> E:\webserver\ruyiweb\flasky\app
+root         2016-11-15 22:09:13,256 level-DEBUG    query_state 2016-11-14 15:27:02
+root         2016-11-15 22:10:01,414 level-ERROR    historywarn 2016-01-15
+root         2016-11-15 22:10:01,414 level-ERROR    historywarn 2016-11-15
+root         2016-11-15 22:11:03,579 level-ERROR    <module> E:\webserver\ruyiweb\flasky\app
+root         2016-11-15 22:11:05,644 level-ERROR    historywarn 2016-02-15
+root         2016-11-15 22:11:05,644 level-ERROR    historywarn 2016-04-05
+root         2016-11-15 22:11:05,644 level-DEBUG    query_history 2016-02-15 00:00:00
+root         2016-11-15 22:11:05,644 level-DEBUG    query_history 2016-04-05 23:59:59
+root         2016-11-15 22:12:43,545 level-ERROR    <module> E:\webserver\ruyiweb\flasky\app
+root         2016-11-15 22:12:44,571 level-DEBUG    query_state 2016-03-22 00:00:00
+root         2016-11-15 22:12:44,571 level-DEBUG    query_state 2016-11-15 23:59:59
+root         2016-11-15 22:12:44,624 level-DEBUG    query_state 2016-11-14 15:27:02

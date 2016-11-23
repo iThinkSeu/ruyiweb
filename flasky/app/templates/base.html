@@ -1,0 +1,76 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}如意叉车监控系统{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="shortcut icon" href="{{ url_for('static', filename='logo.png') }}" type="image/x-icon">
+<link rel="icon" href="{{ url_for('static', filename='logo.png') }}" type="image/x-icon">
+{% endblock %}
+
+{% block navbar %}
+  <div class="header">
+      <nav class="navbar navbar-inverse " role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">如意叉车监控系统</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+           <!--  <ul class="nav navbar-nav">
+              <li class="active"><a href="#">内容审核</a></li>
+              <li><a href="#">论坛管理</a></li>
+              <li><a href="#">数据统计</a></li>
+            </ul> -->
+            <ul class="nav navbar-nav navbar-right">
+              <!-- <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="搜索">
+                </div>
+                <button type="submit" class="btn btn-default hidden">Submit</button>
+              </form> -->
+              <!-- <li><a href="#">未读消息 <span class="badge">5</span></a></li> -->
+            {% if current_user.is_authenticated %}
+                <li class="dropdown">
+                    <a href="/" class="dropdown-toggle" data-toggle="dropdown">账户 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ url_for('auth.change_password') }}">修改密码</a></li>
+                        {%if current_user.rank==1%}
+                        <li><a href="{{ url_for('auth.register') }}">增加账户</a></li>
+                        {%endif%}
+                        <li><a href="{{ url_for('auth.logout') }}">退出系统</a></li>
+                    </ul>
+                </li>
+                {% else %}
+                <li><a href="{{ url_for('auth.login') }}">登录</a></li>
+                {% endif %}
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+{% block page_content %}{% endblock %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{{ moment.include_moment() }}
+
+{% endblock %}

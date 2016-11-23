@@ -1,0 +1,343 @@
+root         2016-11-19 13:08:05,806 level-DEBUG    warncount here
+root         2016-11-19 13:08:09,813 level-DEBUG    allwarncount [u'1', u'2', u'3', u'4', u'5', u'6', u'8', u'9', u'10', u'11', u'13', u'38', u'39', u'40', u'41', u'42', u'43', u'44', u'45', u'46', u'47', u'48', u'49', u'50', u'51', u'52', u'53', u'54', u'55', u'56', u'57', u'58', u'59', u'60', u'61', u'62', u'63', u'64']
+root         2016-11-19 13:08:09,815 level-DEBUG    allwarncount 1
+root         2016-11-19 13:13:46,549 level-ERROR    <module> E:\webserver\ruyiweb\flasky\app
+root         2016-11-19 13:13:49,040 level-DEBUG    warncount here
+root         2016-11-19 13:14:04,006 level-DEBUG    warncount here
+root         2016-11-19 13:14:04,302 level-DEBUG    warncount [u'1', u'2', u'3', u'4', u'5', u'6', u'8', u'9', u'10', u'11', u'13', u'38', u'39', u'40', u'41', u'42', u'43', u'44', u'45', u'46', u'47', u'48', u'49', u'50', u'51', u'52', u'53', u'54', u'55', u'56', u'57', u'58', u'59', u'60', u'61', u'62', u'63', u'64']
+root         2016-11-19 13:14:04,302 level-DEBUG    warncount 1
+root         2016-11-19 13:14:04,302 level-DEBUG    warncount 200000001000
+root         2016-11-19 13:15:31,076 level-ERROR    <module> E:\webserver\ruyiweb\flasky\app
+root         2016-11-19 13:15:31,243 level-DEBUG    warncount here
+root         2016-11-19 13:15:31,522 level-DEBUG    warncount [u'1', u'2', u'3', u'4', u'5', u'6', u'8', u'9', u'10', u'11', u'13', u'38', u'39', u'40', u'41', u'42', u'43', u'44', u'45', u'46', u'47', u'48', u'49', u'50', u'51', u'52', u'53', u'54', u'55', u'56', u'57', u'58', u'59', u'60', u'61', u'62', u'63', u'64']
+root         2016-11-19 13:15:31,522 level-DEBUG    warncount 1
+root         2016-11-19 13:15:31,522 level-DEBUG    warncount 200000001000
+app          2016-11-19 13:15:31,653 level-ERROR    log_exception Exception on /warncount [POST]
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Python27\lib\site-packages\flask_login\utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "E:/webserver/ruyiweb/flasky\app\main\views.py", line 182, in warncount
+    return render_template('warncount1.html',current_time=datetime.datetime.utcnow(),errorDict=errorDict,devices=devices,singlecount=singlecount,deviceid=deviceid)
+  File "C:\Python27\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Python27\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Python27\lib\site-packages\jinja2\environment.py", line 989, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Python27\lib\site-packages\jinja2\environment.py", line 754, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "E:\webserver\ruyiweb\flasky\app\templates\warncount1.html", line 349, in top-level template code
+    data:{{datecount|tojson}}
+  File "C:\Python27\lib\site-packages\flask\json.py", line 272, in tojson_filter
+    return Markup(htmlsafe_dumps(obj, **kwargs))
+  File "C:\Python27\lib\site-packages\flask\json.py", line 186, in htmlsafe_dumps
+    rv = dumps(obj, **kwargs) \
+  File "C:\Python27\lib\site-packages\flask\json.py", line 126, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "C:\Python27\Lib\json\__init__.py", line 250, in dumps
+    sort_keys=sort_keys, **kw).encode(obj)
+  File "C:\Python27\Lib\json\encoder.py", line 209, in encode
+    chunks = list(chunks)
+  File "C:\Python27\Lib\json\encoder.py", line 442, in _iterencode
+    o = _default(o)
+  File "C:\Python27\lib\site-packages\flask\json.py", line 83, in default
+    return _json.JSONEncoder.default(self, o)
+  File "C:\Python27\Lib\json\encoder.py", line 184, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+TypeError: Undefined is not JSON serializable
+root         2016-11-19 13:15:33,625 level-DEBUG    warncount here
+app          2016-11-19 13:15:33,923 level-ERROR    log_exception Exception on /warncount [GET]
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Python27\lib\site-packages\flask_login\utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "E:/webserver/ruyiweb/flasky\app\main\views.py", line 183, in warncount
+    return render_template('warncount1.html',current_time=datetime.datetime.utcnow(),errorDict=errorDict,devices=devices,singlecount=singlecount)
+  File "C:\Python27\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Python27\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Python27\lib\site-packages\jinja2\environment.py", line 989, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Python27\lib\site-packages\jinja2\environment.py", line 754, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "E:\webserver\ruyiweb\flasky\app\templates\warncount1.html", line 349, in top-level template code
+    data:{{datecount|tojson}}
+  File "C:\Python27\lib\site-packages\flask\json.py", line 272, in tojson_filter
+    return Markup(htmlsafe_dumps(obj, **kwargs))
+  File "C:\Python27\lib\site-packages\flask\json.py", line 186, in htmlsafe_dumps
+    rv = dumps(obj, **kwargs) \
+  File "C:\Python27\lib\site-packages\flask\json.py", line 126, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "C:\Python27\Lib\json\__init__.py", line 250, in dumps
+    sort_keys=sort_keys, **kw).encode(obj)
+  File "C:\Python27\Lib\json\encoder.py", line 209, in encode
+    chunks = list(chunks)
+  File "C:\Python27\Lib\json\encoder.py", line 442, in _iterencode
+    o = _default(o)
+  File "C:\Python27\lib\site-packages\flask\json.py", line 83, in default
+    return _json.JSONEncoder.default(self, o)
+  File "C:\Python27\Lib\json\encoder.py", line 184, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+TypeError: Undefined is not JSON serializable
+root         2016-11-19 13:16:20,933 level-ERROR    <module> E:\webserver\ruyiweb\flasky\app
+root         2016-11-19 13:16:21,105 level-DEBUG    warncount here
+app          2016-11-19 13:16:21,528 level-ERROR    log_exception Exception on /warncount [GET]
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Python27\lib\site-packages\flask_login\utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "E:/webserver/ruyiweb/flasky\app\main\views.py", line 183, in warncount
+    return render_template('warncount1.html',current_time=datetime.datetime.utcnow(),errorDict=errorDict,devices=devices,singlecount=singlecount)
+  File "C:\Python27\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Python27\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Python27\lib\site-packages\jinja2\environment.py", line 989, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Python27\lib\site-packages\jinja2\environment.py", line 754, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "E:\webserver\ruyiweb\flasky\app\templates\warncount1.html", line 349, in top-level template code
+    data:{{datecount|tojson}}
+  File "C:\Python27\lib\site-packages\flask\json.py", line 272, in tojson_filter
+    return Markup(htmlsafe_dumps(obj, **kwargs))
+  File "C:\Python27\lib\site-packages\flask\json.py", line 186, in htmlsafe_dumps
+    rv = dumps(obj, **kwargs) \
+  File "C:\Python27\lib\site-packages\flask\json.py", line 126, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "C:\Python27\Lib\json\__init__.py", line 250, in dumps
+    sort_keys=sort_keys, **kw).encode(obj)
+  File "C:\Python27\Lib\json\encoder.py", line 209, in encode
+    chunks = list(chunks)
+  File "C:\Python27\Lib\json\encoder.py", line 442, in _iterencode
+    o = _default(o)
+  File "C:\Python27\lib\site-packages\flask\json.py", line 83, in default
+    return _json.JSONEncoder.default(self, o)
+  File "C:\Python27\Lib\json\encoder.py", line 184, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+TypeError: Undefined is not JSON serializable
+root         2016-11-19 13:16:29,232 level-DEBUG    query_state 2016-11-19 23:59:59
+root         2016-11-19 13:16:34,446 level-DEBUG    warncount here
+app          2016-11-19 13:16:34,740 level-ERROR    log_exception Exception on /warncount [GET]
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Python27\lib\site-packages\flask_login\utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "E:/webserver/ruyiweb/flasky\app\main\views.py", line 183, in warncount
+    return render_template('warncount1.html',current_time=datetime.datetime.utcnow(),errorDict=errorDict,devices=devices,singlecount=singlecount)
+  File "C:\Python27\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Python27\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Python27\lib\site-packages\jinja2\environment.py", line 989, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Python27\lib\site-packages\jinja2\environment.py", line 754, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "E:\webserver\ruyiweb\flasky\app\templates\warncount1.html", line 349, in top-level template code
+    data:{{datecount|tojson}}
+  File "C:\Python27\lib\site-packages\flask\json.py", line 272, in tojson_filter
+    return Markup(htmlsafe_dumps(obj, **kwargs))
+  File "C:\Python27\lib\site-packages\flask\json.py", line 186, in htmlsafe_dumps
+    rv = dumps(obj, **kwargs) \
+  File "C:\Python27\lib\site-packages\flask\json.py", line 126, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "C:\Python27\Lib\json\__init__.py", line 250, in dumps
+    sort_keys=sort_keys, **kw).encode(obj)
+  File "C:\Python27\Lib\json\encoder.py", line 209, in encode
+    chunks = list(chunks)
+  File "C:\Python27\Lib\json\encoder.py", line 442, in _iterencode
+    o = _default(o)
+  File "C:\Python27\lib\site-packages\flask\json.py", line 83, in default
+    return _json.JSONEncoder.default(self, o)
+  File "C:\Python27\Lib\json\encoder.py", line 184, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+TypeError: Undefined is not JSON serializable
+root         2016-11-19 13:16:36,559 level-DEBUG    warncount here
+app          2016-11-19 13:16:36,855 level-ERROR    log_exception Exception on /warncount [GET]
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Python27\lib\site-packages\flask_login\utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "E:/webserver/ruyiweb/flasky\app\main\views.py", line 183, in warncount
+    return render_template('warncount1.html',current_time=datetime.datetime.utcnow(),errorDict=errorDict,devices=devices,singlecount=singlecount)
+  File "C:\Python27\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Python27\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Python27\lib\site-packages\jinja2\environment.py", line 989, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Python27\lib\site-packages\jinja2\environment.py", line 754, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "E:\webserver\ruyiweb\flasky\app\templates\warncount1.html", line 349, in top-level template code
+    data:{{datecount|tojson}}
+  File "C:\Python27\lib\site-packages\flask\json.py", line 272, in tojson_filter
+    return Markup(htmlsafe_dumps(obj, **kwargs))
+  File "C:\Python27\lib\site-packages\flask\json.py", line 186, in htmlsafe_dumps
+    rv = dumps(obj, **kwargs) \
+  File "C:\Python27\lib\site-packages\flask\json.py", line 126, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "C:\Python27\Lib\json\__init__.py", line 250, in dumps
+    sort_keys=sort_keys, **kw).encode(obj)
+  File "C:\Python27\Lib\json\encoder.py", line 209, in encode
+    chunks = list(chunks)
+  File "C:\Python27\Lib\json\encoder.py", line 442, in _iterencode
+    o = _default(o)
+  File "C:\Python27\lib\site-packages\flask\json.py", line 83, in default
+    return _json.JSONEncoder.default(self, o)
+  File "C:\Python27\Lib\json\encoder.py", line 184, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+TypeError: Undefined is not JSON serializable
+root         2016-11-19 13:18:06,661 level-ERROR    <module> E:\webserver\ruyiweb\flasky\app
+root         2016-11-19 13:18:06,836 level-DEBUG    warncount here
+root         2016-11-19 13:18:12,436 level-DEBUG    warncount here
+root         2016-11-19 13:18:12,694 level-DEBUG    warncount [u'1', u'2', u'3', u'4', u'5', u'6', u'8', u'9', u'10', u'11', u'13', u'38', u'39', u'40', u'41', u'42', u'43', u'44', u'45', u'46', u'47', u'48', u'49', u'50', u'51', u'52', u'53', u'54', u'55', u'56', u'57', u'58', u'59', u'60', u'61', u'62', u'63', u'64']
+root         2016-11-19 13:18:12,694 level-DEBUG    warncount 1
+root         2016-11-19 13:18:12,696 level-DEBUG    warncount 200000001000
+root         2016-11-19 13:18:20,197 level-DEBUG    warncount here
+root         2016-11-19 13:18:20,512 level-DEBUG    warncount [u'1', u'2', u'3', u'4', u'5', u'6', u'8', u'9', u'10', u'11', u'13', u'38', u'39', u'40', u'41', u'42', u'43', u'44', u'45', u'46', u'47', u'48', u'49', u'50', u'51', u'52', u'53', u'54', u'55', u'56', u'57', u'58', u'59', u'60', u'61', u'62', u'63', u'64']
+root         2016-11-19 13:18:20,512 level-DEBUG    warncount 1
+root         2016-11-19 13:18:20,512 level-DEBUG    warncount 200000001001
+root         2016-11-19 13:20:10,911 level-ERROR    <module> E:\webserver\ruyiweb\flasky\app
+root         2016-11-19 13:20:15,611 level-DEBUG    warncount here
+root         2016-11-19 13:20:24,095 level-DEBUG    datewarncount [u'1', u'2', u'3', u'4', u'5', u'6', u'8', u'9', u'10', u'11', u'13', u'38', u'39', u'40', u'41', u'42', u'43', u'44', u'45', u'46', u'47', u'48', u'49', u'50', u'51', u'52', u'53', u'54', u'55', u'56', u'57', u'58', u'59', u'60', u'61', u'62', u'63', u'64']
+root         2016-11-19 13:20:24,095 level-DEBUG    datewarncount 1
+root         2016-11-19 13:21:03,062 level-DEBUG    warncount here
+root         2016-11-19 13:21:03,326 level-DEBUG    warncount [u'1', u'2', u'3', u'4', u'5', u'6', u'8', u'9', u'10', u'11', u'13', u'38', u'39', u'40', u'41', u'42', u'43', u'44', u'45', u'46', u'47', u'48', u'49', u'50', u'51', u'52', u'53', u'54', u'55', u'56', u'57', u'58', u'59', u'60', u'61', u'62', u'63', u'64']
+root         2016-11-19 13:21:03,326 level-DEBUG    warncount 1
+root         2016-11-19 13:21:03,326 level-DEBUG    warncount 200000001002
+root         2016-11-19 13:22:43,875 level-ERROR    <module> E:\webserver\ruyiweb\flasky\app
+root         2016-11-19 13:22:44,059 level-DEBUG    warncount here
+root         2016-11-19 13:22:44,342 level-DEBUG    warncount [u'1', u'2', u'3', u'4', u'5', u'6', u'8', u'9', u'10', u'11', u'13', u'38', u'39', u'40', u'41', u'42', u'43', u'44', u'45', u'46', u'47', u'48', u'49', u'50', u'51', u'52', u'53', u'54', u'55', u'56', u'57', u'58', u'59', u'60', u'61', u'62', u'63', u'64']
+root         2016-11-19 13:22:44,342 level-DEBUG    warncount 1
+root         2016-11-19 13:22:44,342 level-DEBUG    warncount 200000001002
+root         2016-11-19 13:22:52,125 level-DEBUG    warncount here
+root         2016-11-19 13:22:52,387 level-DEBUG    warncount [u'1', u'2', u'3', u'4', u'5', u'6', u'8', u'9', u'10', u'11', u'13', u'38', u'39', u'40', u'41', u'42', u'43', u'44', u'45', u'46', u'47', u'48', u'49', u'50', u'51', u'52', u'53', u'54', u'55', u'56', u'57', u'58', u'59', u'60', u'61', u'62', u'63', u'64']
+root         2016-11-19 13:22:52,387 level-DEBUG    warncount 1
+root         2016-11-19 13:22:52,387 level-DEBUG    warncount 200000001001
+root         2016-11-19 13:26:17,424 level-DEBUG    allwarncount [u'1', u'2', u'3', u'4', u'5', u'6', u'8', u'9', u'10', u'11', u'13', u'38', u'39', u'40', u'41', u'42', u'43', u'44', u'45', u'46', u'47', u'48', u'49', u'50', u'51', u'52', u'53', u'54', u'55', u'56', u'57', u'58', u'59', u'60', u'61', u'62', u'63', u'64']
+root         2016-11-19 13:26:17,426 level-DEBUG    allwarncount 1
+root         2016-11-19 13:26:44,677 level-ERROR    <module> E:\webserver\ruyiweb\flasky\app
+root         2016-11-19 13:26:45,150 level-DEBUG    allwarncount [u'1', u'2', u'3', u'4', u'5', u'6', u'8', u'9', u'10', u'11', u'13', u'38', u'39', u'40', u'41', u'42', u'43', u'44', u'45', u'46', u'47', u'48', u'49', u'50', u'51', u'52', u'53', u'54', u'55', u'56', u'57', u'58', u'59', u'60', u'61', u'62', u'63', u'64']
+root         2016-11-19 13:26:45,151 level-DEBUG    allwarncount 1
+root         2016-11-19 13:26:53,306 level-DEBUG    warncount here
+root         2016-11-19 13:26:53,605 level-DEBUG    warncount [u'1', u'2', u'3', u'4', u'5', u'6', u'8', u'9', u'10', u'11', u'13', u'38', u'39', u'40', u'41', u'42', u'43', u'44', u'45', u'46', u'47', u'48', u'49', u'50', u'51', u'52', u'53', u'54', u'55', u'56', u'57', u'58', u'59', u'60', u'61', u'62', u'63', u'64']
+root         2016-11-19 13:26:53,605 level-DEBUG    warncount 1
+root         2016-11-19 13:26:53,605 level-DEBUG    warncount 200000001001
+root         2016-11-19 13:28:16,403 level-ERROR    <module> E:\webserver\ruyiweb\flasky\app
+root         2016-11-19 13:28:16,576 level-DEBUG    warncount here
+root         2016-11-19 13:28:16,900 level-DEBUG    warncount [u'1', u'2', u'3', u'4', u'5', u'6', u'8', u'9', u'10', u'11', u'13', u'38', u'39', u'40', u'41', u'42', u'43', u'44', u'45', u'46', u'47', u'48', u'49', u'50', u'51', u'52', u'53', u'54', u'55', u'56', u'57', u'58', u'59', u'60', u'61', u'62', u'63', u'64']
+root         2016-11-19 13:28:16,900 level-DEBUG    warncount 1
+root         2016-11-19 13:28:16,901 level-DEBUG    warncount 200000001001
+root         2016-11-19 13:32:28,111 level-ERROR    <module> E:\webserver\ruyiweb\flasky\app
+root         2016-11-19 13:32:30,224 level-DEBUG    warncount here
+root         2016-11-19 13:32:37,091 level-DEBUG    allwarncount [u'1', u'2', u'3', u'4', u'5', u'6', u'8', u'9', u'10', u'11', u'13', u'38', u'39', u'40', u'41', u'42', u'43', u'44', u'45', u'46', u'47', u'48', u'49', u'50', u'51', u'52', u'53', u'54', u'55', u'56', u'57', u'58', u'59', u'60', u'61', u'62', u'63', u'64']
+root         2016-11-19 13:32:37,092 level-DEBUG    allwarncount 1
+root         2016-11-19 13:34:38,561 level-ERROR    <module> E:\webserver\ruyiweb\flasky\app
+root         2016-11-19 13:34:38,753 level-DEBUG    warncount here
+root         2016-11-19 13:34:39,040 level-DEBUG    warncount [u'1', u'2', u'3', u'4', u'5', u'6', u'8', u'9', u'10', u'11', u'13', u'38', u'39', u'40', u'41', u'42', u'43', u'44', u'45', u'46', u'47', u'48', u'49', u'50', u'51', u'52', u'53', u'54', u'55', u'56', u'57', u'58', u'59', u'60', u'61', u'62', u'63', u'64']
+root         2016-11-19 13:34:39,040 level-DEBUG    warncount 1
+root         2016-11-19 13:34:39,040 level-DEBUG    warncount 200000001000
+root         2016-11-19 13:34:43,221 level-DEBUG    warncount here
+root         2016-11-19 13:34:43,500 level-DEBUG    warncount []
+root         2016-11-19 13:34:43,500 level-DEBUG    warncount 1
+root         2016-11-19 13:34:43,500 level-DEBUG    warncount 200000001001
+root         2016-11-19 13:34:46,516 level-DEBUG    warncount here
+root         2016-11-19 13:34:46,823 level-DEBUG    warncount [u'1', u'2', u'3', u'4', u'5', u'6', u'8', u'9', u'10', u'11', u'13', u'38', u'39', u'40', u'41', u'42', u'43', u'44', u'45', u'46', u'47', u'48', u'49', u'50', u'51', u'52', u'53', u'54', u'55', u'56', u'57', u'58', u'59', u'60', u'61', u'62', u'63', u'64']
+root         2016-11-19 13:34:46,825 level-DEBUG    warncount 1
+root         2016-11-19 13:34:46,825 level-DEBUG    warncount 200000001000
+root         2016-11-19 13:34:52,390 level-DEBUG    warncount here
+root         2016-11-19 13:34:52,664 level-DEBUG    warncount [u'1', u'2', u'3', u'4', u'5', u'6', u'8', u'9', u'10', u'11', u'13', u'38', u'39', u'40', u'41', u'42', u'43', u'44', u'45', u'46', u'47', u'48', u'49', u'50', u'51', u'52', u'53', u'54', u'55', u'56', u'57', u'58', u'59', u'60', u'61', u'62', u'63', u'64']
+root         2016-11-19 13:34:52,664 level-DEBUG    warncount 1
+root         2016-11-19 13:34:52,664 level-DEBUG    warncount 200000001001
+root         2016-11-19 13:40:23,512 level-ERROR    <module> E:\webserver\ruyiweb\flasky\app
+root         2016-11-19 13:40:23,999 level-DEBUG    allwarncount [u'1', u'2', u'3', u'4', u'5', u'6', u'8', u'9', u'10', u'11', u'13', u'38', u'39', u'40', u'41', u'42', u'43', u'44', u'45', u'46', u'47', u'48', u'49', u'50', u'51', u'52', u'53', u'54', u'55', u'56', u'57', u'58', u'59', u'60', u'61', u'62', u'63', u'64']
+root         2016-11-19 13:40:23,999 level-DEBUG    allwarncount 1
+root         2016-11-19 13:47:38,821 level-DEBUG    allwarncount [u'1', u'2', u'3', u'4', u'5', u'6', u'8', u'9', u'10', u'11', u'13', u'38', u'39', u'40', u'41', u'42', u'43', u'44', u'45', u'46', u'47', u'48', u'49', u'50', u'51', u'52', u'53', u'54', u'55', u'56', u'57', u'58', u'59', u'60', u'61', u'62', u'63', u'64']
+root         2016-11-19 13:47:38,822 level-DEBUG    allwarncount 1
+root         2016-11-19 13:47:48,724 level-ERROR    <module> E:\webserver\ruyiweb\flasky\app
+root         2016-11-19 13:47:49,213 level-DEBUG    allwarncount [u'1', u'2', u'3', u'4', u'5', u'6', u'8', u'9', u'10', u'11', u'13', u'38', u'39', u'40', u'41', u'42', u'43', u'44', u'45', u'46', u'47', u'48', u'49', u'50', u'51', u'52', u'53', u'54', u'55', u'56', u'57', u'58', u'59', u'60', u'61', u'62', u'63', u'64']
+root         2016-11-19 13:47:49,214 level-DEBUG    allwarncount 1
+root         2016-11-19 13:50:15,770 level-DEBUG    allwarncount [u'1', u'2', u'3', u'4', u'5', u'6', u'8', u'9', u'10', u'11', u'13', u'38', u'39', u'40', u'41', u'42', u'43', u'44', u'45', u'46', u'47', u'48', u'49', u'50', u'51', u'52', u'53', u'54', u'55', u'56', u'57', u'58', u'59', u'60', u'61', u'62', u'63', u'64']
+root         2016-11-19 13:50:15,772 level-DEBUG    allwarncount 1
+root         2016-11-19 13:50:23,970 level-ERROR    <module> E:\webserver\ruyiweb\flasky\app
+root         2016-11-19 13:50:24,428 level-DEBUG    allwarncount [u'1', u'2', u'3', u'4', u'5', u'6', u'8', u'9', u'10', u'11', u'13', u'38', u'39', u'40', u'41', u'42', u'43', u'44', u'45', u'46', u'47', u'48', u'49', u'50', u'51', u'52', u'53', u'54', u'55', u'56', u'57', u'58', u'59', u'60', u'61', u'62', u'63', u'64']
+root         2016-11-19 13:50:24,428 level-DEBUG    allwarncount 1
+root         2016-11-19 17:04:22,433 level-ERROR    <module> E:\webserver\ruyiweb\flasky\app
+root         2016-11-19 20:56:04,766 level-INFO     query_today 2016-11-19 00:00:00
+root         2016-11-19 20:56:04,766 level-INFO     query_today 2016-11-19 23:59:59
+root         2016-11-19 20:56:37,322 level-INFO     query_today 2016-11-19 00:00:00
+root         2016-11-19 20:56:37,322 level-INFO     query_today 2016-11-19 23:59:59
+root         2016-11-19 20:56:42,487 level-INFO     query_today 2016-11-19 00:00:00
+root         2016-11-19 20:56:42,487 level-INFO     query_today 2016-11-19 23:59:59
+root         2016-11-19 21:03:35,494 level-INFO     query_today 2016-11-19 00:00:00
+root         2016-11-19 21:03:35,494 level-INFO     query_today 2016-11-19 23:59:59
+root         2016-11-19 21:04:39,502 level-INFO     query_today 2016-11-19 00:00:00
+root         2016-11-19 21:04:39,502 level-INFO     query_today 2016-11-19 23:59:59
+root         2016-11-19 21:05:28,861 level-ERROR    historywarn 2016-11-19
+root         2016-11-19 21:06:46,746 level-INFO     query_today 2016-11-19 00:00:00
+root         2016-11-19 21:06:46,746 level-INFO     query_today 2016-11-19 23:59:59
+root         2016-11-19 21:55:18,400 level-INFO     query_today 2016-11-19 00:00:00
+root         2016-11-19 21:55:18,400 level-INFO     query_today 2016-11-19 23:59:59
+root         2016-11-19 21:55:21,043 level-INFO     query_today 2016-11-19 00:00:00
+root         2016-11-19 21:55:21,043 level-INFO     query_today 2016-11-19 23:59:59
+root         2016-11-19 21:56:00,841 level-DEBUG    warncount here
+root         2016-11-19 21:56:05,517 level-DEBUG    warncount here
+root         2016-11-19 22:04:44,013 level-INFO     query_today 2016-11-19 00:00:00
+root         2016-11-19 22:04:44,013 level-INFO     query_today 2016-11-19 23:59:59
+root         2016-11-19 22:04:48,401 level-DEBUG    warncount here
+root         2016-11-19 22:05:23,210 level-INFO     query_today 2016-11-19 00:00:00
+root         2016-11-19 22:05:23,211 level-INFO     query_today 2016-11-19 23:59:59
+root         2016-11-19 22:05:29,292 level-DEBUG    warncount here
+root         2016-11-19 22:06:02,456 level-INFO     query_today 2016-11-19 00:00:00
+root         2016-11-19 22:06:02,456 level-INFO     query_today 2016-11-19 23:59:59
+root         2016-11-19 22:06:04,928 level-INFO     query_today 2016-11-19 00:00:00
+root         2016-11-19 22:06:04,928 level-INFO     query_today 2016-11-19 23:59:59
+root         2016-11-19 22:06:11,319 level-ERROR    historywarn 2016-11-19
+root         2016-11-19 22:06:13,865 level-ERROR    historywarn 2016-11-19
+root         2016-11-19 22:06:18,653 level-ERROR    historywarn 2016-01-19

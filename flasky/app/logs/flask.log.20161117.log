@@ -1,0 +1,5 @@
+root         2016-11-17 10:52:44,627 level-INFO     query_today 2016-11-17 00:00:00
+root         2016-11-17 10:52:44,628 level-INFO     query_today 2016-11-17 23:59:59
+root         2016-11-17 11:42:51,907 level-INFO     query_today 2016-11-17 00:00:00
+root         2016-11-17 11:42:51,907 level-INFO     query_today 2016-11-17 23:59:59
+root         2016-11-17 11:43:37,871 level-DEBUG    warncount here

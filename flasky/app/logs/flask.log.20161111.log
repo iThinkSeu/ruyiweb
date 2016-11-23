@@ -1,0 +1,23 @@
+root         2016-11-11 14:29:35,786 level-ERROR    <module> d:\webserver\ruyiweb\flasky\app
+werkzeug     2016-11-11 14:29:36,364 level-INFO     _log  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+werkzeug     2016-11-11 14:30:00,684 level-INFO     _log 127.0.0.1 - - [11/Nov/2016 14:30:00] "GET / HTTP/1.1" 302 -
+werkzeug     2016-11-11 14:30:00,857 level-INFO     _log 127.0.0.1 - - [11/Nov/2016 14:30:00] "GET /auth/login?next=%2F HTTP/1.1" 200 -
+werkzeug     2016-11-11 14:30:01,059 level-INFO     _log 127.0.0.1 - - [11/Nov/2016 14:30:01] "GET /static/bootstrap.css HTTP/1.1" 200 -
+werkzeug     2016-11-11 14:30:01,059 level-INFO     _log 127.0.0.1 - - [11/Nov/2016 14:30:01] "GET /static/jquery-3.1.1.min.js HTTP/1.1" 200 -
+werkzeug     2016-11-11 14:30:01,075 level-INFO     _log 127.0.0.1 - - [11/Nov/2016 14:30:01] "GET /static/deleteUser.js HTTP/1.1" 200 -
+werkzeug     2016-11-11 14:30:01,075 level-INFO     _log 127.0.0.1 - - [11/Nov/2016 14:30:01] "GET /static/bootstrap.js HTTP/1.1" 200 -
+werkzeug     2016-11-11 14:30:01,091 level-INFO     _log 127.0.0.1 - - [11/Nov/2016 14:30:01] "GET /static/logo.png HTTP/1.1" 200 -
+werkzeug     2016-11-11 14:30:01,105 level-INFO     _log 127.0.0.1 - - [11/Nov/2016 14:30:01] "GET /static/bg.jpg HTTP/1.1" 200 -
+werkzeug     2016-11-11 14:30:12,213 level-INFO     _log 127.0.0.1 - - [11/Nov/2016 14:30:12] "POST /auth/login?next=%2F HTTP/1.1" 302 -
+werkzeug     2016-11-11 14:30:12,290 level-INFO     _log 127.0.0.1 - - [11/Nov/2016 14:30:12] "GET / HTTP/1.1" 200 -
+werkzeug     2016-11-11 14:30:12,306 level-INFO     _log 127.0.0.1 - - [11/Nov/2016 14:30:12] "GET /static/bootstrap.js HTTP/1.1" 200 -
+root         2016-11-11 14:47:38,740 level-ERROR    <module> D:\ruyiweb\flasky\app
+root         2016-11-11 15:06:46,668 level-ERROR    <module> D:\ruyiweb\flasky\app
+root         2016-11-11 15:37:32,838 level-ERROR    <module> D:\ruyiweb\flasky\app
+root         2016-11-11 15:43:25,789 level-ERROR    <module> D:\ruyiweb\flasky\app
+root         2016-11-11 16:07:00,789 level-ERROR    <module> D:\ruyiweb\flasky\app
+root         2016-11-11 16:45:30,390 level-ERROR    <module> D:\ruyiweb\flasky\app
+root         2016-11-11 17:11:57,802 level-ERROR    <module> D:\ruyiweb\flasky\app
+root         2016-11-11 17:24:26,463 level-ERROR    <module> D:\ruyiweb\flasky\app
+root         2016-11-11 17:36:19,805 level-ERROR    <module> D:\ruyiweb\flasky\app
+root         2016-11-11 17:37:31,378 level-ERROR    <module> D:\ruyiweb\flasky\app

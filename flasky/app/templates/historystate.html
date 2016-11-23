@@ -1,0 +1,241 @@
+
+{% import "bootstrap/wtf.html" as wtf%}
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" href="{{ url_for('static', filename='logo.png') }}" type="image/x-icon">
+<link rel="shortcut icon" href="{{ url_for('static', filename='logo.png') }}" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.css') }}">
+<script src="{{ url_for('static', filename='jquery-3.1.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='bootstrap.js') }}"></script>
+<script src="{{ url_for('static', filename='highstock.js') }}"></script>
+<script src="{{ url_for('static', filename='exporting.js') }}"></script>
+<script src="{{ url_for('static', filename='export-csv.js') }}"></script>
+<title>如意叉车监控系统</title>
+</head>
+    
+<body >
+<header   style="background-image: url(../static/bg.jpg)">
+        <div class="container-fluid">
+
+            <div class="col-md-4">
+              <img src="static/logo.png" alt="ruyi" width="70px">
+            </div>
+                <div class="col-md-offset-10">
+              <h3> 400 880 9355</h3> 
+                </div>         
+
+        </div>
+    </header>
+
+
+<div> 
+
+    <nav class="navbar navbar-inverse">
+
+      <div class="col-md-offset-1">
+
+        <div  class="collapse navbar-collapse"  >
+
+          <ul class="nav navbar-nav ">
+<!--     <li > <a id="index" href="/" class="navbar-brand"> 首页</a> </li>  -->
+    <li ><a id="onlinestate"  class="navbar-brand" href="/" >在线设备</a> </li>
+    <li><a id="todaywarn" class="navbar-brand" href="/todaywarn" >当日故障报警</a> </li>
+    <li> <a id="historywarn" class="navbar-brand" href="/historywarn" >历史故障查询</a></li>
+    <li class="active"> <a id="historystate" class="navbar-brand" href="/historystate" >历史状态查询</a></li>
+    <li><a id="repair" class="navbar-brand" href="/repair" >维修保养记录</a>  </li>
+    <li><a id="warncount" class="navbar-brand" href="/warncount" >故障统计</a> </li>
+    <li ><a id="changepassword" class="navbar-brand" href="auth/change-password" >修改密码</a> </li>
+    {%if current_user.rank==1%}
+    <li ><a id="usermanager" class="navbar-brand" href="usermanager">账号管理</a> </li>
+    <li ><a id="register" class="navbar-brand" href="auth/register" >用户注册</a> </li>
+    {%endif%}
+    <li><a class="navbar-brand" href="{{ url_for('auth.logout') }}" >退出系统</a> </li>
+
+          </ul>
+
+         <ul class="nav navbar-nav navbar-right"> <li><a>用户：{{ current_user.username }} ({%if current_user.rank==1%}管理员{%else %}普通用户{% endif %})</a></li></ul>
+        </div>
+      </div>
+
+
+
+    </nav>
+</div>
+<div class="container">
+<div class="col-xs-12 col-sm-10 col-md-offset-1 col-lg-10">
+    <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>历史状态查询</h4>
+
+
+            </div>
+            <div class="col-md-4">
+    {{wtf.quick_form(stateform) }}
+    <br>
+</div>
+      <div class="panel-body">
+               <table class="table">  
+
+               <thead>
+                                <tr>
+
+                        <td><strong>起始时间</strong></td>
+                        <td><strong>{%if states and states[2]%}{{states[2]}}{%endif%}</strong></td>
+                        <td><strong>结束时间</strong></td>
+                        <td><strong>{%if states and states[3]%}{{states[3]}}{%endif%}</strong></td>
+
+                        </tr>
+                <tr>
+                  <!-- <th></th>
+                  <th>审核状态</th>
+                  <th>标题</th> -->
+                  <th>名称</th>
+                  <th>动作次数</th>
+                  <th>名称</th>
+                  <th>动作次数</th>
+                </tr>
+                <tr>
+                        <td>喇叭开关 </td>
+                        <td> {%if states and states[1][0][0]%}{{states[1][0][0]}}{%else%}0{%endif%}</td>
+                        <td>提升开关</td>
+                        <td>{%if states and states[1][0][1]%}{{states[1][0][1]}}{%else%}0{%endif%}</td>
+                       
+                        </tr>
+                           <tr>
+                        <td>提升接触器 </td>
+                        <td>{%if states and states[1][0][2] %}{{states[1][0][2]}}{%else%}0{%endif%}</td>
+                        <td>下降开关</td>
+                        <td>{%if states and states[1][0][3]%}{{states[1][0][3]}}{%else%}0{%endif%}</td>
+                       
+                        </tr>
+                           <tr>
+                        <td>主接触器 </td>
+                        <td>{%if states and states[1][0][4]%}{{states[1][0][4]}}{%else%}0{%endif%}</td>
+                        <td>制动器线圈控制端</td>
+                        <td>{%if states and states[1][0][5]%}{{states[1][0][5]}}{%else%}0{%endif%}</td>
+                       
+                        </tr>
+                </thead>
+                <tbody>
+               
+            
+                </tbody>
+                </table>
+                <div id="mychart"></div>
+<script >
+Highcharts.setOptions({
+    lang: {
+        printChart: '打印图表',
+        downloadJPEG: '下载 JPEG 文件',
+        downloadPDF: '下载 PDF   文件',
+        downloadPNG: '下载 PNG  文件',
+        downloadSVG: '下载 SVG  文件',
+        downloadCSV: '下载 CSV  文件',
+        downloadXLS: '下载 XLS   文件'
+    },
+    navigation: {
+        menuItemStyle: {
+            padding: '6px 14px'
+        }
+    },
+    global: {
+    useUTC: false
+  },
+  exporting: {
+            buttons: {
+                contextButton: {
+                    menuItems: [
+                                Highcharts.getOptions().exporting.buttons.contextButton.menuItems[0],
+                                Highcharts.getOptions().exporting.buttons.contextButton.menuItems[7]
+                            ]
+                }
+            }
+        }
+});
+$(function () {
+    $('#mychart').highcharts({
+        chart: {
+            type: 'scatter',
+            zoomType: 'x'
+        },
+         exporting: {
+        filename: '编号{{id}}时间{{begin}}至{{end}}历史状态图 '
+
+    },
+        title: {
+            text: '历史状态图 '
+        },
+        subtitle: {
+            text: '查询时间：{%if states and states[2]%}{{states[2]}}{%endif%} 至{%if states and states[3]%}{{states[3]}}{%endif%} '
+        },
+        scrollbar: {
+
+               enabled: true
+
+          },
+        xAxis: {
+            title: {
+                enabled: true,
+                text: '时间'
+            },
+            type:'datetime',
+             tickPixelInterval: 150,
+             labels: {
+                       enable: true,
+                       //step: 4,
+                       formatter: function () {
+                           return Highcharts.dateFormat('%Y-%m-%d %H:%M', this.value);
+                           }
+                       },
+
+        },
+        yAxis: {
+            title: {
+                text: '报警值'
+            }
+        },
+        
+        credits:{
+     enabled:false // 禁用版权信息
+},
+       tooltip: {
+            formatter: function() {
+                    return '<b>'+ this.series.name +'</b><br/>'+
+                    Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) +'状态值: '+ this.y ;
+            }
+
+        },
+        series: [{
+            name: '提升电机电流',
+            data: {%if states%}{{states[0][0]}}{%endif%}
+        },{
+            name: '提升电机温度 ',
+            data: {%if states%}{{states[0][1]}}{%endif%}
+        },{
+            name: '电机电压',
+            data: {%if states%}{{states[0][2]}}{%endif%}
+        },{
+            name: '电机电流',
+            data: {%if states%}{{states[0][3]}}{%endif%}
+        },{
+            name: '电机温度',
+            data: {%if states%}{{states[0][4]}}{%endif%}
+        }
+        ]
+    });
+});
+
+
+</script>
+            </div>
+      
+    </div>
+
+ </div>
+</div>
+</body>
+</html>
+
+
+

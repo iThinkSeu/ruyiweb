@@ -1,0 +1,251 @@
+{% for device in devices %}
+                <tr>
+                  <!-- <td><input type="checkbox"/></td>
+                  <td><span class="label label-default">未审核</span></td> -->
+                  <td>{{ loop.index }}</td>
+                  <td>{{device.id}}</td>
+                  <td>{{device.time}}</td>
+                  <td>{{device.runningTime}}</td>
+                  <td>
+                    <button  type="button" class="btn btn-danger" data-toggle="collapse" data-target="#{{device.id}}" href="#{{device.id}}">
+                      详情
+                    </button>
+                  </td>
+                </tr>
+                <tr id="{{device.id}}" class="collapse">
+                  <td colspan="10">
+                        <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                        <tr>行走控制器信息</tr>
+                        <tr>
+                        <td>运行方向</td>
+                        <td>
+                        {% if (device.canDirectionandSpeedMode%4)==3 %}
+                        无效 
+                        {% else %}
+                        {% if (device.canDirectionandSpeedMode%4)==1 %}
+                        前进
+                        {% else %}
+                        {% if (device.canDirectionandSpeedMode%4)==2 %}
+                        后退
+                        {%else %}
+                        无效 
+                        {% endif %}
+                        {% endif %}
+                        {% endif %}
+                        </td>
+                        <td>小计里程</td>
+                        <td>{{device.canCourse}}</td>
+                        <td>高低速模式选择</td>
+                        <td>
+                        {% if (device.canDirectionandSpeedMode%16)>=8 %}
+                        低速
+                        {%else %}
+                        高速 
+                        {% endif %}
+                        </td>
+                          <td>低功耗模式</td>
+                        <td>
+                        {% if device.canLowPowerMode==170 %}
+                        低功耗
+                        {%else %}
+                        其他 
+                        {% endif %}
+                        </td>
+                        </tr>
+                        <tr>
+                         <td>电机电压</td>
+                        <td>{{device.canDirectVoltage}}V</td>
+                       <td>电机温度</td>
+                        <td>{{device.canMotorTemperature}}°C</td>
+                        <td>电机电流</td>
+                        <td>{{device.canMotorCurrent }}A</td>
+                         <td>转速</td>
+                        <td>{{device.canSpeed}}rpm</td>
+                        </tr>
+                         <tr>                
+                        <td>紧急反向</td>
+                        <td>
+                         {% if (device.canDirectionandSpeedMode%8)>=4 %}
+                        是
+                        {%else %}
+                        否 
+                        {% endif %}
+                        </td>
+                        <td>Interlock</td>
+                        <td> {% if (device.canDirectionandSpeedMode%4)>=2 %}
+                        是
+                        {%else %}
+                        否 
+                        {% endif %}
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        </tr>
+                        <!--  -->
+                        </table>
+                        </div>
+                        <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                        <tr>提升控制器信息</tr>
+                        <tr>
+                        <td>提升电机电流</td>
+                        <td>{{device.liftMotorCurrent}}A</td>
+                        <td>提升电机温度</td>
+                        <td>{{device.liftMotorTemperature}}°C</td>
+                        <td>提升开关正极</td>
+                        <td>
+                        {% if device.upBtnSwitch %}
+                          正常
+                        {%else %}
+                          <font color="red"> 不正常<font> 
+                        {% endif %}</td>
+                          <td>下降开关正极</td>
+                        <td>
+                        {% if device.downBtnSwitch %}
+                           正常
+                        {%else %}
+                          <font color="red"> 不正常<font> 
+                        {% endif %}</td>
+                        </tr>
+                        <tr>
+                         <td>提升控制器线圈进线端</td>
+                        <td>
+                        {% if device.upBtnContactorCoilUpper %}
+                          <font color="red"> 不正常<font>
+                        {%else %}
+                           正常 
+                        {% endif %}</td>
+                       <td>提升接触器线圈接地端</td>
+                        <td>
+                        {% if device.upBtnContactorCoilDown %}
+                         <font color="red"> 不正常<font>
+                        {%else %}
+                          正常 
+                        {% endif %}</td>
+                        <td>提升触点进线端</td>
+                        <td>
+                        {% if device.upBtnContactUpper %}
+                          正常
+                        {%else %}
+                         <font color="red"> 不正常<font> 
+                        {% endif %}</td>
+                         <td>提升触点出线端</td>
+                        <td>
+                        {% if device.upBtnContactDown %}
+                          <font color="red"> 不正常<font>
+                        {%else %}
+                           正常 
+                        {% endif %}</td>
+                        </tr>
+                         <tr>                
+                        <td>下降电磁阀进线端</td>
+                        <td>
+                        {% if device.downBtnsolenoidvalveUpper %}
+                          <font color="red"> 不正常<font>
+                        {%else %}
+                            正常 
+                        {% endif %}</td>
+                        <td>下降电磁阀接地端</td>
+                        <td>
+                        {% if device.downBtnsolenoidvalveDown %}
+                          <font color="red"> 不正常<font>
+                        {%else %}
+                            正常 
+                        {% endif %}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        </tr>
+                        </table>
+                        </div>
+                        <!--  -->
+                        <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                        <tr>喇叭、主控制器、制动器信息</tr>
+                        <tr>
+                         <td>主接触器线圈进线端</td>
+                        <td>
+                        {% if device.masterContactorCoilUpper %}
+                          正常
+                        {%else %}
+                          <font color="red"> 不正常<font> 
+                        {% endif %}
+                        </td>
+                       <td>主接触器线圈接地端</td>
+                        <td>
+                        {% if device.masterContactorCoilDown %}
+                          <font color="red"> 不正常<font>
+                        {%else %}
+                          正常 
+                        {% endif %}</td>
+                        <td>主接触器触点进线端</td>
+                        <td>
+                        {% if device.masterContactUpper %}
+                          正常
+                        {%else %}
+                          <font color="red"> 不正常<font> 
+                        {% endif %}</td>
+                         <td>主接触器触点出线端</td>
+                        <td>
+                        {% if device.masterContactDown %}
+                          正常
+                        {%else %}
+                          <font color="red"> 不正常<font> 
+                        {% endif %}</td>
+                        </tr>
+                        <tr>
+                        <td>喇叭正极</td>
+                        <td>
+                        {% if device.hornSwitch %}
+                          正常
+                        {%else %}
+                          <font color="red"> 不正常<font> 
+                        {% endif %}</td>
+                        <td>喇叭负极</td>
+                        <td>
+                        {% if device.hornGround %}
+                          <font color="red"> 不正常<font>
+                        {%else %}
+                            正常 
+                        {% endif %}
+                        </td>
+                        <td>喇叭开关</td>
+                        <td>
+                        {% if device.horn %}
+                          <font color="red"> 不正常<font>
+                        {%else %}
+                          正常 
+                        {% endif %}
+                        </td>
+                          <td></td>
+                        <td></td>
+                        </tr>
+                         <tr>                
+                        <td>制动器线圈控制端</td>
+                        <td>
+                        {% if device.arresterUpper %}
+                          正常
+                        {%else %}
+                          <font color="red"> 不正常<font> 
+                        {% endif %}</td>
+                        <td>制动器线圈正极</td>
+                        <td>
+                        {% if device.arresterDown %}
+                          正常
+                        {%else %}
+                          <font color="red"> 不正常<font> 
+                        {% endif %}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        </tr>
+                        </table>
+                        </div>
+                  </td>
+                </tr>
+{%endfor %}

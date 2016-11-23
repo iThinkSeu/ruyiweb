@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" href="{{ url_for('static', filename='logo.png') }}" type="image/x-icon">
+<link rel="shortcut icon" href="{{ url_for('static', filename='logo.png') }}" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.css') }}">
+<script src="{{ url_for('static', filename='jquery-3.1.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='bootstrap.js') }}"></script>
+<title>如意叉车信息</title>
+</head>
+    
+<body >
+<header   style="background-image: url(../static/bg.jpg)">
+        <div class="container-fluid">
+
+            <div class="col-md-4">
+              <img src="../static/logo.png" alt="ruyi" width="70px">
+            </div>
+                <div class="col-md-offset-10">
+              <h3> 400 880 9355</h3> 
+                </div>         
+
+        </div>
+    </header>
+
+
+<div> 
+
+        <nav class="navbar navbar-inverse">
+
+      <div class="col-md-offset-1">
+
+        <div  class="collapse navbar-collapse"  >
+
+          <ul class="nav navbar-nav ">
+<!--     <li > <a id="index" href="/" class="navbar-brand"> 首页</a> </li>  -->
+    <li ><a id="onlinestate"  class="navbar-brand" href="/" >在线设备</a> </li>
+    <li><a id="todaywarn" class="navbar-brand" href="/todaywarn" >当日故障报警</a> </li>
+    <li> <a id="historywarn" class="navbar-brand" href="/historywarn" >历史故障查询</a></li>
+    <li> <a id="historystate" class="navbar-brand" href="/historystate" >历史状态查询</a></li>
+    <li><a id="repair" class="navbar-brand" href="/repair" >维修保养记录</a>  </li>
+    <li><a id="warncount" class="navbar-brand" href="/warncount" >故障统计</a> </li>
+    <li ><a id="changepassword" class="navbar-brand" href="auth/change-password" >修改密码</a> </li>
+    {%if current_user.rank==1%}
+    <li ><a id="usermanager" class="navbar-brand" >账号管理</a> </li>
+    <li ><a id="register" class="navbar-brand" href="auth/register" >用户注册</a> </li>
+    {%endif%}
+    <li><a class="navbar-brand" href="{{ url_for('auth.logout') }}" >退出系统</a> </li>
+
+          </ul>
+
+         <ul class="nav navbar-nav navbar-right"> <li><a>用户：{{ current_user.username }} ({%if current_user.rank==1%}管理员{%else %}普通用户{% endif %})</a></li></ul>
+        </div>
+      </div>
+
+
+
+    </nav>
+</div>
+<div class="container">
+<div class="col-xs-12 col-sm-10 col-md-offset-1 col-lg-10">
+    <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>叉车状态信息</h4>
+
+            </div>
+            <div class="panel-body">
+
+
+
+
+                <tr id="{{device.id}}" >
+                  <td colspan="10">
+                  <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                        <tr>叉车基本信息</tr>
+                        <tr>
+                        <td>叉车ID</td>
+                        <td>
+                        {{device.id}}
+                        </td>
+                        <td>采集时间</td>
+                        <td>{{device.time}}</td>
+                        <td>运行时间</td>
+                        <td>
+                        {{device.runningTime}}
+                        </td>
+
+                        </tr>
+
+                        </table>
+                        </div>
+                        <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                        <tr>提升控制器信息</tr>
+                        <tr>
+                        <td>提升电机电流</td>
+                        <td>{{device.liftMotorCurrent}}A</td>
+                        <td>提升电机温度</td>
+                        <td>{{device.liftMotorTemperature}}°C</td>
+                        <td>提升开关正极</td>
+                        <td>
+                        {% if device.upBtnSwitch %}
+                          正常
+                        {%else %}
+                          <font color="red"> 不正常</font> 
+                        {% endif %}</td>
+                          <td>下降开关正极</td>
+                        <td>
+                        {% if device.downBtnSwitch %}
+                           正常
+                        {%else %}
+                          <font color="red"> 不正常</font> 
+                        {% endif %}</td>
+                        </tr>
+                        <tr>
+                         <td>提升控制器线圈进线端</td>
+                        <td>
+                        {% if device.upBtnContactorCoilUpper %}
+                          <font color="red"> 不正常</font>
+                        {%else %}
+                           正常 
+                        {% endif %}</td>
+                       <td>提升接触器线圈接地端</td>
+                        <td>
+                        {% if device.upBtnContactorCoilDown %}
+                         <font color="red"> 不正常</font>
+                        {%else %}
+                          正常 
+                        {% endif %}</td>
+                        <td>提升触点进线端</td>
+                        <td>
+                        {% if device.upBtnContactUpper %}
+                          正常
+                        {%else %}
+                         <font color="red"> 不正常</font> 
+                        {% endif %}</td>
+                         <td>提升触点出线端</td>
+                        <td>
+                        {% if device.upBtnContactDown %}
+                          <font color="red"> 不正常</font>
+                        {%else %}
+                           正常 
+                        {% endif %}</td>
+                        </tr>
+                         <tr>                
+                        <td>下降电磁阀进线端</td>
+                        <td>
+                        {% if device.downBtnsolenoidvalveUpper %}
+                          <font color="red"> 不正常</font>
+                        {%else %}
+                            正常 
+                        {% endif %}</td>
+                        <td>下降电磁阀接地端</td>
+                        <td>
+                        {% if device.downBtnsolenoidvalveDown %}
+                          <font color="red"> 不正常</font>
+                        {%else %}
+                            正常 
+                        {% endif %}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        </tr>
+                        </table>
+                        </div>
+
+                        <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                        <tr>喇叭、主控制器、制动器信息</tr>
+                        <tr>
+                         <td>主接触器线圈进线端</td>
+                        <td>
+                        {% if device.masterContactorCoilUpper %}
+                          正常
+                        {%else %}
+                          <font color="red"> 不正常</font> 
+                        {% endif %}
+                        </td>
+                       <td>主接触器线圈接地端</td>
+                        <td>
+                        {% if device.masterContactorCoilDown %}
+                          <font color="red"> 不正常</font>
+                        {%else %}
+                          正常 
+                        {% endif %}</td>
+                        <td>主接触器触点进线端</td>
+                        <td>
+                        {% if device.masterContactUpper %}
+                          正常
+                        {%else %}
+                          <font color="red"> 不正常</font> 
+                        {% endif %}</td>
+                         <td>主接触器触点出线端</td>
+                        <td>
+                        {% if device.masterContactDown %}
+                          正常
+                        {%else %}
+                          <font color="red"> 不正常</font> 
+                        {% endif %}</td>
+                        </tr>
+                        <tr>
+                        <td>喇叭正极</td>
+                        <td>
+                        {% if device.hornSwitch %}
+                          正常
+                        {%else %}
+                          <font color="red"> 不正常</font> 
+                        {% endif %}</td>
+                        <td>喇叭负极</td>
+                        <td>
+                        {% if device.hornGround %}
+                          <font color="red"> 不正常</font>
+                        {%else %}
+                            正常 
+                        {% endif %}
+                        </td>
+                        <td>喇叭开关</td>
+                        <td>
+                        {% if device.horn %}
+                          <font color="red"> 不正常</font>
+                        {%else %}
+                          正常 
+                        {% endif %}
+                        </td>
+                          <td></td>
+                        <td></td>
+                        </tr>
+                         <tr>                
+<!--                         <td>制动器线圈控制端</td>
+                        <td>
+                        {% if   device.arresterDown  %}
+                          正常
+                        {%else %}
+                          <font color="red"> 不正常</font> 
+                        {% endif %}</td> -->
+                        <td>制动器线圈正极</td>
+                        <td>
+                        {% if device.arresterUpper %}
+                          正常
+                        {%else %}
+                          <font color="red"> 不正常</font> 
+                        {% endif %}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        </tr>
+                        </table>
+                        </div>
+                  </td>
+                </tr>
+</div>
+</div>
+</body>
+</html>

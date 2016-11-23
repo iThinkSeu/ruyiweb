@@ -1,0 +1,44 @@
+root         2016-11-21 11:06:55,615 level-INFO     query_today 2016-11-21 00:00:00
+root         2016-11-21 11:06:55,631 level-INFO     query_today 2016-11-21 23:59:59
+root         2016-11-21 11:07:02,507 level-DEBUG    warncount here
+root         2016-11-21 11:07:05,726 level-DEBUG    warncount here
+root         2016-11-21 11:08:31,186 level-DEBUG    warncount here
+root         2016-11-21 11:08:33,015 level-INFO     query_today 2016-11-21 00:00:00
+root         2016-11-21 11:08:33,016 level-INFO     query_today 2016-11-21 23:59:59
+root         2016-11-21 11:14:05,183 level-INFO     query_today 2016-11-21 00:00:00
+root         2016-11-21 11:14:05,184 level-INFO     query_today 2016-11-21 23:59:59
+root         2016-11-21 11:14:10,352 level-DEBUG    warncount here
+root         2016-11-21 11:14:13,490 level-INFO     query_today 2016-11-21 00:00:00
+root         2016-11-21 11:14:13,490 level-INFO     query_today 2016-11-21 23:59:59
+root         2016-11-21 11:19:42,904 level-INFO     query_today 2016-11-21 00:00:00
+root         2016-11-21 11:19:42,904 level-INFO     query_today 2016-11-21 23:59:59
+root         2016-11-21 14:36:49,250 level-INFO     query_today 2016-11-21 00:00:00
+root         2016-11-21 14:36:49,250 level-INFO     query_today 2016-11-21 23:59:59
+root         2016-11-21 14:36:56,592 level-DEBUG    warncount here
+root         2016-11-21 14:56:02,213 level-ERROR    <module> E:\webserver\ruyiweb\flasky\app
+app          2016-11-21 14:56:03,121 level-ERROR    log_exception Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Python27\lib\site-packages\flask_login\utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "E:/webserver/ruyiweb/flasky\app\main\views.py", line 22, in index
+    log.debug(current_user.name)
+  File "C:\Python27\lib\site-packages\werkzeug\local.py", line 343, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: 'User' object has no attribute 'name'
+root         2016-11-21 14:56:43,674 level-ERROR    <module> E:\webserver\ruyiweb\flasky\app
+root         2016-11-21 14:56:43,861 level-DEBUG    index <User u'admin'>
+root         2016-11-21 14:59:53,194 level-DEBUG    index <User u'yangke'>
+root         2016-11-21 15:00:39,596 level-ERROR    <module> E:\webserver\ruyiweb\flasky\app
+root         2016-11-21 15:00:39,803 level-DEBUG    index yangke
+root         2016-11-21 15:00:46,825 level-ERROR    <module> E:\webserver\ruyiweb\flasky\app
+root         2016-11-21 15:00:49,035 level-DEBUG    index yangke

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" href="{{ url_for('static', filename='logo.png') }}" type="image/x-icon">
+<link rel="shortcut icon" href="{{ url_for('static', filename='logo.png') }}" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.css') }}">
+<script src="{{ url_for('static', filename='jquery-3.1.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='bootstrap.js') }}"></script>
+<script src="{{ url_for('static', filename='highstock.js') }}"></script>
+<title>如意叉车故障信息</title>
+</head>
+    
+<body >
+<header   style="background-image: url(/static/bg.jpg)">
+        <div class="container-fluid">
+
+            <div class="col-md-4">
+              <img src="{{ url_for('static', filename='logo.png') }}" alt="ruyi" width="70px">
+            </div>
+                <div class="col-md-offset-10">
+              <h3> 400 880 9355</h3> 
+                </div>         
+
+        </div>
+    </header>
+
+
+<div> 
+
+        <nav class="navbar navbar-inverse">
+
+      <div class="col-md-offset-1">
+
+        <div  class="collapse navbar-collapse"  >
+
+          <ul class="nav navbar-nav ">
+<!--     <li > <a id="index" href="/" class="navbar-brand"> 首页</a> </li>  -->
+    <li ><a id="onlinestate"  class="navbar-brand" href="/" >在线设备</a> </li>
+    <li><a id="todaywarn" class="navbar-brand" href="/todaywarn" >当日故障报警</a> </li>
+    <li> <a id="historywarn" class="navbar-brand" href="/historywarn" >历史故障查询</a></li>
+    <li> <a id="historystate" class="navbar-brand" href="/historystate" >历史状态查询</a></li>
+    <li><a id="repair" class="navbar-brand" href="/repair" >维修保养记录</a>  </li>
+    <li><a id="warncount" class="navbar-brand" href="/warncount" >故障统计</a> </li>
+    <li ><a id="changepassword" class="navbar-brand" href="auth/change-password" >修改密码</a> </li>
+    {%if current_user.rank==1%}
+    <li ><a id="usermanager" class="navbar-brand" href="/usermanager">账号管理</a> </li>
+    <li ><a id="register" class="navbar-brand" href="auth/register" >用户注册</a> </li>
+    {%endif%}
+    <li><a class="navbar-brand" href="{{ url_for('auth.logout') }}" >退出系统</a> </li>
+
+          </ul>
+
+         <ul class="nav navbar-nav navbar-right"> <li><a>用户：{{ current_user.username }} ({%if current_user.rank==1%}管理员{%else %}普通用户{% endif %})</a></li></ul>
+        </div>
+      </div>
+
+
+
+    </nav>
+</div>
+<div class="container">
+<div class="col-xs-12 col-sm-10 col-md-offset-1 col-lg-10">
+    <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>叉车故障信息</h4>
+
+            </div>
+            <div class="panel-body">
+
+
+
+
+                <tr id="{{number}}" >
+                  <td colspan="10">
+                  <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                        <tr>叉车基本信息</tr>
+                        <tr>
+                        <td>叉车ID</td>
+                        <td>
+                        {{number}}
+                        </td>
+                        <td>故障次数</td>
+                        <td>
+                       {{warns[0]|count+warns[1]|count}}
+                        </td>
+                        
+
+                        </tr>
+                        <tr>
+                        <td>起始时间</td>
+                        <td>{{begin}}</td>
+                        <td>结束时间</td>
+                        <td>
+                        {{end}}
+                        </td>
+                        </tr>
+
+                        <tr>
+                        <td>故障代码</td>
+                        <td><font color="red">{{errorNumber}}</font></td>
+                        <td>故障名称</td>
+                        <td>
+                        <font color="red">{{errorDict[errorNumber]}}</font>
+                        </td>
+                        </tr>
+
+                        </table>
+
+                        </div>
+                        <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                        <tr>故障处理方法</tr>
+
+                        <tr>
+                        <td>故障处理方法</td>
+                        <td><font color="red">{{handleDict[errorNumber]}}</font></td>
+
+                        </tr>
+                        </table>
+
+                        </div>
+                  </td>
+                </tr>
+                <div id="container"></div>
+                <div></div>
+<script >
+Highcharts.setOptions({
+  global: {
+    useUTC: false
+  }
+});
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'scatter',
+            zoomType: 'x'
+        },
+        title: {
+            text: '故障报警图'
+        },
+        subtitle: {
+            text: '故障时间：{{begin}}  至 {{end}}'
+        },
+         scrollbar: {
+
+               enabled: true
+
+          },
+        xAxis: {
+            title: {
+                enabled: true,
+                text: '时间'
+            },
+            type:'datetime',
+             tickPixelInterval: 150,
+             labels: {
+                       enable: true,
+                       //step: 4,
+                       formatter: function () {
+                           return Highcharts.dateFormat('%Y-%m-%d %H:%M', this.value);
+                           }
+                       },
+            showLastLabel: true
+        },
+        yAxis: {
+            title: {
+                text: '报警值'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'left',
+            verticalAlign: 'top',
+            x: 100,
+            y: 70,
+            floating: true,
+            backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
+            borderWidth: 1
+        },
+        credits:{
+     enabled:false // 禁用版权信息
+},
+       tooltip: {
+            formatter: function() {
+                    return '<b>'+ this.series.name +'</b><br/>'+
+                    Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) +'<br/>  报警值: '+ this.y;
+            }
+        },
+        series: [{
+            name: '故障中',
+            color: '#ff0000',
+            data: {{warns[0]|tojson}}
+        },{
+            name: '故障恢复 ',
+            color: '#00FF00',
+            data: {{warns[1]|tojson}}
+        }]
+    });
+});
+
+
+</script>
+</div>
+
+</div>
+</body>
+</html>
+
+

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" href="{{ url_for('static', filename='logo.png') }}" type="image/x-icon">
+<link rel="shortcut icon" href="{{ url_for('static', filename='logo.png') }}" type="image/x-icon">
+<!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='table.css') }}"> -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.css') }}">
+<script src="{{ url_for('static', filename='jquery-3.1.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='bootstrap.js') }}"></script>
+<title>如意叉车监控系统</title>
+</head>
+
+<body >
+<header   style="background-image: url(../static/bg.jpg)">
+        <div class="container-fluid">
+
+            <div class="col-md-4">
+              <img src="static/logo.png" alt="ruyi" width="70px">
+            </div>
+                <div class="col-md-offset-10">
+              <h3> 400 880 9355</h3> 
+                </div>         
+
+        </div>
+    </header>
+
+
+<div> 
+
+    <nav class="navbar navbar-inverse">
+
+      <div class="col-md-offset-1">
+
+        <div  class="collapse navbar-collapse"  >
+
+          <ul class="nav navbar-nav ">
+<!--     <li > <a id="index" href="/" class="navbar-brand"> 首页</a> </li>  -->
+    <li class="active"><a id="onlinestate"  class="navbar-brand" href="/" >在线设备</a> </li>
+    <li><a id="todaywarn" class="navbar-brand" href="/todaywarn" >当日故障报警</a> </li>
+    <li> <a id="historywarn" class="navbar-brand" href="/historywarn" >历史故障查询</a></li>
+    <li> <a id="historystate" class="navbar-brand" href="/historystate" >历史状态查询</a></li>
+    <li><a id="repair" class="navbar-brand" href="/repair" >维修保养记录</a>  </li>
+    <li><a id="warncount" class="navbar-brand" href="/warncount" >故障统计</a> </li>
+    <li ><a id="changepassword" class="navbar-brand" href="auth/change-password" >修改密码</a> </li>
+    {%if current_user.rank==1%}
+    <li ><a id="usermanager" class="navbar-brand" href="usermanager">账号管理</a> </li>
+    <li ><a id="register" class="navbar-brand" href="auth/register" >用户注册</a> </li>
+    {%endif%}
+    <li><a class="navbar-brand" href="{{ url_for('auth.logout') }}" >退出系统</a> </li>
+
+          </ul>
+
+         <ul class="nav navbar-nav navbar-right"> <li><a>用户：{{ current_user.username }} ({%if current_user.rank==1%}管理员{%else %}普通用户{% endif %})</a></li></ul>
+        </div>
+      </div>
+
+
+
+    </nav>
+</div>
+<div class="container">
+
+
+<div class="col-xs-12 col-sm-10 col-md-offset-1 col-lg-10">
+    <div class="panel panel-default">
+            <div class="panel-heading">
+            <div class="row">
+                <h4 class="col-md-6">叉车状态信息</h4>
+                <h5 class="col-md-2 text-right">叉车编号</h5>
+                <div class="col-md-3">
+
+                  <select class="form-control" id="textSelect">
+      {% for device in devices %}
+      <option>{{device.id}}</option>
+      {%endfor %}
+    </select>
+    </div>
+    <a class="btn btn-success tryitbn " onclick="javascript:window.open('/device/'+$('#textSelect option:selected').text());" >
+                      查询
+                    </a>
+
+            </div>
+            </div>
+            <div class="panel-body">
+               <table class="table ">  
+               <thead >
+                <tr>
+                  <!-- <th></th>
+                  <th>审核状态</th>
+                  <th>标题</th> -->
+                  <th style="width:10%">编号</th>
+                  <th style="width:25%">叉车ID</th>
+                  <th style="width:25%">采集时间</th>
+                  <th style="width:25%">运行时间</th>
+                  <th style="width:15%">详情</th>
+                </tr>
+                </thead>
+                <tbody>
+
+{% for device in devices %}
+                <tr>
+                  <!-- <td><input type="checkbox"/></td>
+                  <td><span class="label label-default">未审核</span></td> -->
+                  <td style="width:10%">{{ loop.index }}</td>
+                  <td style="width:25%">{{device.id}}</td>
+                  <td style="width:25%">{{device.time}}</td>
+                  <td style="width:25%">{{device.runningTime}}</td>
+                  <td style="width:15%">
+                    <a   class="btn btn-danger tryitbn" target="_blank" href="/device/{{device.id}}" >
+                      详情
+                    </a>
+                  </td>
+                </tr>
+
+{%endfor %}
+
+                </tbody>
+                </table>
+
+            </div>
+    </div>
+ </div>
+ </div>
+</body>
+</html>
+
+
+
